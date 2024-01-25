@@ -9,19 +9,20 @@ from .serializers import registerSerializer,loginSerializer
 
 @api_view(['POST'])
 def login(request):
+   
+    email = request.data["email"]
+    password = request.data["password"]
     serializer = loginSerializer(data=request.data)
-    email = request.data["email"],
-    password = request.data["password"],
+
     connection = connections['default']
     try:
         with connection.cursor() as cursor:
             cursor.execute("SELECT * FROM accounts_user WHERE email = %s AND password = %s", [email,password])
             user = cursor.fetchone()
-            if user and serializer.is_valid():
-                validated_data = serializer.validated_data
-                return Response(validated_data)
+            if user:
+                  return Response({"message": "Login successful"})
             else:
-                return Response({"message": "Invalid credentials", "errors": serializer.errors}, status=400)
+                    return Response({"message": "Invalid credentials"})
     except:
         return Response({"message":"Error occurred while logging in"}, status=405)
 
