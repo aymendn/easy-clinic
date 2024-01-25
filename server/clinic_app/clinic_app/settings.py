@@ -89,11 +89,11 @@ WSGI_APPLICATION = "clinic_app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": 'django.db.backends.postgresql',
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "admin",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "NAME": "defaultdb",
+        "USER": "avnadmin",
+        "PASSWORD": "AVNS_xbah9PsvbqD6k3S5DeL",
+        "HOST": "clinic-clinic.a.aivencloud.com",
+        "PORT": "27305",
     }
 }
 
