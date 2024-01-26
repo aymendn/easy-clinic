@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-c^0bqn@*qq$y3i+lq#oh39m&d^eev_*j$=aoz8=0(gmqg8mpa$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "accounts.apps.AccountsConfig",
+    "comment.apps.CommentConfig",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -79,23 +80,23 @@ WSGI_APPLICATION = "clinic_app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-    #"default": {
-        #"ENGINE": "django.db.backends.sqlite3",
-        #"NAME": BASE_DIR / "db.sqlite3",
-    #}
-#}
-
 DATABASES = {
     "default": {
-        "ENGINE": 'django.db.backends.postgresql',
-        "NAME": "defaultdb",
-        "USER": "avnadmin",
-        "PASSWORD": "AVNS_xbah9PsvbqD6k3S5DeL",
-        "HOST": "clinic-clinic.a.aivencloud.com",
-        "PORT": "27305",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": 'django.db.backends.postgresql',
+#         "NAME": "defaultdb",
+#         "USER": "avnadmin",
+#         "PASSWORD": "AVNS_xbah9PsvbqD6k3S5DeL",
+#         "HOST": "clinic-clinic.a.aivencloud.com",
+#         "PORT": "27305",
+#     }
+# }
 
 
 # Password validation
