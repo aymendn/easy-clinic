@@ -2,11 +2,11 @@ import 'package:client/assets/fonts.gen.dart';
 import 'package:client/theme/colors.dart';
 import 'package:flutter/material.dart';
 
-
-
 class AppTheme {
+  static const fontFamily = FontFamily.dMSans;
+
   static const defaultButtonTextStyle = TextStyle(
-    fontFamily: FontFamily.inter,
+    fontFamily: fontFamily,
     fontSize: 17,
     fontWeight: FontWeight.w600,
   );
@@ -14,7 +14,7 @@ class AppTheme {
   static const colors = AppColors.light;
 
   static ThemeData lightTheme = ThemeData(
-    fontFamily: FontFamily.inter,
+    fontFamily: fontFamily,
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: ColorScheme.fromSeed(
@@ -49,13 +49,13 @@ class AppTheme {
     ),
     listTileTheme: ListTileThemeData(
       titleTextStyle: TextStyle(
-        fontFamily: FontFamily.inter,
+        fontFamily: fontFamily,
         fontSize: 17,
         fontWeight: FontWeight.w600,
         color: colors.textPrimary,
       ),
       subtitleTextStyle: TextStyle(
-        fontFamily: FontFamily.inter,
+        fontFamily: fontFamily,
         fontSize: 15,
         fontWeight: FontWeight.w500,
         color: colors.textSecondary,
@@ -74,13 +74,13 @@ class AppTheme {
       ),
       shadowColor: Colors.black45,
       titleTextStyle: TextStyle(
-        fontFamily: FontFamily.inter,
+        fontFamily: fontFamily,
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: colors.textPrimary,
       ),
       contentTextStyle: TextStyle(
-        fontFamily: FontFamily.inter,
+        fontFamily: fontFamily,
         fontSize: 16,
         color: colors.textSecondary,
       ),

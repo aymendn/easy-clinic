@@ -44,7 +44,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
   }
 
   return GoRouter(
-    initialLocation: '/playground',
+    initialLocation: '/login',
     routes: routes,
     redirect: redirect,
     errorBuilder: (_, __) => const ErrorScreen(),
