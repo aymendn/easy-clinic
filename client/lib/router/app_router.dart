@@ -4,6 +4,7 @@ import 'package:client/debug/logger.dart';
 import 'package:client/features/home/home_screen.dart';
 import 'package:client/features/login/presentation/login_screen.dart';
 import 'package:client/features/playground.dart';
+import 'package:client/features/web/web_screen.dart';
 import 'package:client/router/custom_go_route.dart';
 import 'package:client/router/error_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,11 @@ import 'package:go_router/go_router.dart';
 
 enum AppRoute {
   home,
-  login, patients, appointments, playground,
+  login,
+  patients,
+  appointments,
+  playground,
+  web,
 }
 
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -26,7 +31,6 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       path: '/login',
       name: AppRoute.login.name,
       page: const LoginScreen(),
-
     ),
     // playground
     CustomGoRoute(
@@ -34,7 +38,12 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       name: AppRoute.playground.name,
       page: const PlaygoundScreen(),
     ),
-
+    // web
+    CustomGoRoute(
+      path: '/web',
+      name: AppRoute.web.name,
+      page: const WebScreen(),
+    ),
   ];
 
   FutureOr<String?> redirect(BuildContext context, GoRouterState state) async {

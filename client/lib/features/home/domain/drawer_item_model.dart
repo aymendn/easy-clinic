@@ -20,6 +20,11 @@ class DrawerItemModel {
           route: AppRoute.home,
         ),
         DrawerItemModel(
+          title: 'Requests',
+          icon: Symbols.list,
+          route: AppRoute.patients,
+        ),
+        DrawerItemModel(
           title: 'Patients',
           icon: Symbols.person_filled_rounded,
           route: AppRoute.patients,
@@ -29,16 +34,19 @@ class DrawerItemModel {
           icon: Symbols.calendar_clock_rounded,
           route: AppRoute.appointments,
         ),
+        DrawerItemModel(
+          title: 'Manage Accounts',
+          icon: Symbols.person_add_rounded,
+          route: AppRoute.appointments,
+        ),
       ];
 
   static List<NavigationDrawerDestination> get destinations => items
       .map(
         (item) => NavigationDrawerDestination(
-
           label: Text(item.title),
           icon: Icon(item.icon),
           selectedIcon: Icon(item.icon, fill: 1),
-          
         ),
       )
       .toList();

@@ -1,36 +1,25 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:ui';
 
 import 'package:client/app.dart';
 import 'package:client/providers/prefs.dart';
 import 'package:client/utils/prefs.dart';
+import 'package:client/web_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // ignore:depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:go_router/go_router.dart';
-import 'package:window_manager/window_manager.dart';
+
+// * Set this to false to run the app in desktop mode
+// ============================
+const LAUNCH_MODE_WEB = false;
+// ============================
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // * Initialize the window manager
-  await windowManager.ensureInitialized();
-
-  // * Create a window
-  WindowOptions windowOptions = const WindowOptions(
-    size: Size(800, 600),
-    center: true,
-    skipTaskbar: false,
-    title: 'EasyClinic',
-    minimumSize: Size(800, 600),
-  );
-
-  // * Show the window
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
-  });
 
   final prefs = await Prefs.init();
 
@@ -52,7 +41,7 @@ Future<void> main() async {
       ],
       child: ScreenUtilInit(
         designSize: const Size(1280, 720),
-        builder: (_, __) => const EasyClinicApp(),
+        builder: (_, __) => LAUNCH_MODE_WEB ? const WebApp() : const App(),
       ),
     ),
   );

@@ -130,6 +130,8 @@ class CustomTextFormField extends HookWidget {
         ),
         suffixIcon: suffixWidget,
         prefixIcon: prefixIcon,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        alignLabelWithHint: true,
         border: WidgetUtils.border(strokeColor, null, bRadius),
         errorBorder: WidgetUtils.border(context.colors.error, null, bRadius),
         enabledBorder: WidgetUtils.border(strokeColor, null, bRadius),
