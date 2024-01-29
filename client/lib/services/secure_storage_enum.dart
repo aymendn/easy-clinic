@@ -1,0 +1,4 @@
+enum SecureStorageEnum {
+  token,
+  userInfo,
+}
